@@ -70,10 +70,11 @@ uber-clone/
 ├── .env                  # Sensitive credentials
 └── README.md
 
-![Home](https://github.com/user-attachments/assets/e6d3e26f-2a70-4c98-a5ee-eabd0ae9d5c4)
-![Map 1](https://github.com/user-attachments/assets/268813f5-96eb-4d0b-a817-4c4410535e4d)
-![Map 2](https://github.com/user-attachments/assets/5eba0dae-da60-4725-bcc3-ae7a07b4dc9e)
-![Map 3 (2)](https://github.com/user-attachments/assets/e3aa1778-621b-4d2d-82c7-cb6d2a609061)
-![Services](https://github.com/user-attachments/assets/d34339bf-0326-4cb4-bf7b-7a27e36e7fc9)
-![Activity](https://github.com/user-attachments/assets/06160985-fd1a-4542-95ef-18da8ce277de)
-![Account](https://github.com/user-attachments/assets/6b912558-a829-4d89-8186-e570c58e1d43)
+```
+![Home](https://github.com/user-attachments/assets/c68ebf53-a515-4221-8858-3d0a68558cdb)
+![Map 1](https://github.com/user-attachments/assets/15317d2f-ff72-43c9-952d-b51bae530138)
+![Map 2](https://github.com/user-attachments/assets/6a1f6dfd-c2d8-4367-88e6-931cdf4aa712)
+![Map 3 (2)](https://github.com/user-attachments/assets/ead5784c-312b-4807-8d7d-c7a3cf164a8e)
+![Services](https://github.com/user-attachments/assets/3a80c478-1cdc-44bf-ad83-a4431aee89a3)
+![Activity](https://github.com/user-attachments/assets/c83905e4-4596-4e44-ad3b-979ce6d98897)
+![Account](https://github.com/user-attachments/assets/6725ac63-712d-46a8-9451-304b81d431ef)
