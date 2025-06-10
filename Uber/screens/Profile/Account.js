@@ -26,7 +26,6 @@ export default function AccountScreen() {
     }
     return (
         <SafeAreaView style={styles.container}>
-            {/* Header */}
             <View style={styles.header}>
                 <View>
                     <Text style={styles.name}>Anonyms</Text>
@@ -35,12 +34,10 @@ export default function AccountScreen() {
                         <Text style={styles.ratingText}>5.0</Text>
                     </View>
                 </View>
-                {/* <View style={styles.avatar} /> */}
                 <MaterialCommunityIcons name='avtar' />
                 <Image style={{ width: 50, height: 50, borderRadius: 100 }} source={require("../../assets/avtar.webp")} />
             </View>
 
-            {/* Top Options */}
             <ScrollView style={styles.scroll}>
                 <View style={styles.topRow}>
                     <OptionTile icon="help-circle-outline" label="Help" />
@@ -48,7 +45,6 @@ export default function AccountScreen() {
                     <OptionTile icon="ios-document-text-outline" label="Activity" />
                 </View>
 
-                {/* Info Cards */}
                 <View style={styles.card}>
                     <Text style={styles.cardTitle}>Rider insurance</Text>
                     <Text style={styles.cardText}>₹10L cover for ₹3/trip</Text>
@@ -58,7 +54,6 @@ export default function AccountScreen() {
                     <Text style={styles.cardText}>Take an interactive tour of your privacy settings</Text>
                 </View>
 
-                {/* Scrollable Settings List */}
 
                 {[
                     { icon: 'umbrella', label: 'Setting' },
@@ -89,7 +84,6 @@ export default function AccountScreen() {
     );
 }
 
-// Reusable Top Tile
 function OptionTile({ icon, label, notification }) {
     return (
         <TouchableOpacity style={styles.tile}>
@@ -100,7 +94,6 @@ function OptionTile({ icon, label, notification }) {
     );
 }
 
-// Reusable Setting Row
 function SettingItem({ icon, label }) {
     return (
         <TouchableOpacity style={styles.settingRow}>

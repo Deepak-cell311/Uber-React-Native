@@ -1,105 +1,75 @@
 import React, { useState } from "react";
-import { View, TextInput, Text, Button, FlatList, StyleSheet } from "react-native";
+import { View, TextInput, Text, Button, FlatList, StyleSheet, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { GO_MAP_PRO_API_KEY } from '@env'; // Make sure your .env key is named like this
+import { GO_MAP_PRO_API_KEY } from '@env';
+import ServiceCard from "../components/Box/ServiceBox";
+import PromoCard from "../components/ScrollableBoxes1/PromoCard";
 
 export default function ServicesScreen() {
 
-    console.log("GO_MAP_PRO_API_KEY:", GO_MAP_PRO_API_KEY); // Debugging line to check if the key is loaded
-    if (!GO_MAP_PRO_API_KEY) {
-        console.error("GO_MAP_PRO_API_KEY is not defined. Please check your .env file.");
-    }
-    const [inputValue, setInputValue] = useState('');
-    const [loading, setLoading] = useState(false);
-    const [suggestions, setSuggestions] = useState([]);
-
-    const Search = async () => {
-        if (inputValue.trim() === '') {
-            console.log("No input provided for search.");
-            return;
-        }
-
-        setLoading(true);
-        try {
-            const response = await fetch(`https://maps.gomaps.pro/maps/api/place/autocomplete/json?input=${encodeURIComponent(inputValue)}&key=${GO_MAP_PRO_API_KEY}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            console.log("API Data:", data);
-            setSuggestions(data.predictions || []);
-        } catch (error) {
-            console.log("Error in search function:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.header}>Services Screen</Text>
-
-            <TextInput
-                value={inputValue}
-                onChangeText={text => setInputValue(text)}
-                placeholder="Enter place name"
-                style={styles.input}
-                onSubmitEditing={Search}
-            />
-
-            <Button title={loading ? "Searching..." : "Search"} onPress={Search} disabled={loading} />
-
-            <Text style={styles.label}>Input value: {inputValue}</Text>
-
-            <FlatList
-                data={suggestions}
-                keyExtractor={item => item.place_id}
-                renderItem={({ item }) => (
-                    <View style={styles.item}>
-                        <Text style={styles.itemText}>{item.description}</Text>
-                    </View>
-                )}
-            />
+            <Text style={styles.header}>Services</Text>
+            <View >
+                <Text style={styles.title}> Go anywhere, get anything</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                    <PromoCard
+                        title="Enjoy 50% off select trips"
+                        image={require('../assets/box/moto.webp')}
+                        backgroundColor="#E8F5E9"
+                    />
+                    <PromoCard
+                        title="Get ₹30 off on Autos"
+                        image={require('../assets/box/auto.webp')}
+                        backgroundColor="#FFF3E0"
+                    />
+                    <PromoCard
+                        title="Flat ₹100 cashback on Intercity"
+                        image={require('../assets/box/intercity.png')}
+                        backgroundColor="#E3F2FD"
+                    />
+                </ScrollView>
+                <ServiceCard />
+            </View>
         </SafeAreaView>
     );
 }
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 20,
-        paddingTop: 40,
+        padding: 20,
+        backgroundColor: 'black',
     },
-    header: {
-        fontSize: 24,
+    title: {
+        fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 20,
+        color: 'white',
     },
     input: {
-        height: 50,
-        borderColor: 'red',
+        height: 40,
+        borderColor: 'gray',
         borderWidth: 1,
+        marginBottom: 20,
         paddingHorizontal: 10,
-        borderRadius: 8,
-        marginBottom: 10,
     },
-    label: {
-        fontSize: 16,
-        marginVertical: 10,
+    button: {
+        marginTop: 10,
     },
-    item: {
-        padding: 10,
-        borderBottomColor: '#ccc',
+    listItem: {
+        padding: 20,
         borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
     },
-    itemText: {
-        fontSize: 16,
+    header: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'white',
+        marginBottom: 20,
     },
-});
+})
+
+

@@ -1,16 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, Text } from 'react-native';
-import { Home, Settings, Clock, User } from 'lucide-react-native'; // Import your icons
+import { Home, Settings, Clock, User } from 'lucide-react-native'; 
 import HomeStackNavigator from './HomeStackNavigator';
 import AccountScreen from '../screens/Profile/Account';
-import ServicesScreen from '../services/ServicesScreen'; // Ensure this path is correct
-
-
-
-// const HomeScreen = () => <View><Text>Home Screen</Text></View>;
-// const ServicesScreen = () => <View><Text>Services Screen</Text></View>;
-const ActivityScreen = () => <View><Text>Activity Screen</Text></View>;
+import ServicesScreen from '../services/ServicesScreen'; 
+import ActivityScreen from '../screens/Profile/ActivityScreen';
 
 const Tab = createBottomTabNavigator();
 

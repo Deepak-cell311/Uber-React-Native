@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useState, useEffect, use } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Image, ScrollView, KeyboardAvoidingView } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE, Callout, Circle, Polyline } from 'react-native-maps';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -12,54 +12,16 @@ import axios, { Axios } from 'axios';
 
 const SearchScreen = ({ navigation, route }) => {
     const sheetRef = useRef(null);
-    // const navigation = useNavigate()
 
     const { distance, origin, destination } = route.params || {};
     console.log(distance, origin, destination);
 
-    const [location, setLocation] = useState(null);
     const [region, setRegion] = useState(null);
-    const [places, setPlaces] = useState([]);
     const [routeCoordinates, setRouteCoordinates] = useState([]);
-
-
     const [endLatitude, setEndLatitude] = useState(0);
     const [endLongitude, setEndLongitude] = useState(0);
-
     const [startLatitude, setStartLatitude] = useState(0);
     const [startLongitude, setStartLongitude] = useState(0);
-
-
-
-    console.log("origin: ", origin);
-    console.log("destination: ", destination);
-    console.log("distance: ", distance);
-
-
-    const nearbyPlaces = [
-        { id: '1', name: 'Kanpur Central Railway Station', distance: '8.7 km' },
-        { id: '2', name: 'Z Square Mall', distance: '11 km' },
-        { id: '3', name: 'Kanpur Airport Chakeri', distance: '18 km' },
-        { id: '4', name: 'Jhakarkati Bus Stand', distance: '7.2 km' },
-        { id: '5', name: 'Govindpuri Railway Station', distance: '4.9 km' },
-    ];
-
-    const [marker, setMarker] = useState([
-        {
-            id: 1,
-            latitude: 26.423715,
-            longitude: 80.295104,
-            title: 'Tean A',
-            description: 'Current location of Team A',
-        },
-        {
-            id: 2,
-            latitude: 26.805271,
-            longitude: 72.268093,
-            title: 'Team B',
-            description: 'Current location of Team B',
-        }
-    ]);
 
     const MyCustomMarkerView = () => {
         return (
@@ -79,12 +41,6 @@ const SearchScreen = ({ navigation, route }) => {
     const openSheet = () => {
         sheetRef.current?.snapToIndex(1);
     };
-    // useEffect(() => {
-    //     if (route.params?.distance) {
-    //         console.log("Received Distance:", route.params.distance);
-    //         // You can also update UI state with it
-    //     }
-    // }, [route.params]);
 
     const fetchPlacesDirection = async () => {
         try {
@@ -98,7 +54,7 @@ const SearchScreen = ({ navigation, route }) => {
             }));
             setRouteCoordinates(routeCoordinates);
 
-            console.log("Response of fetchPlacesDirection: ", response.data);
+            // console.log("Response of fetchPlacesDirection: ", response.data);
             setEndLatitude(response.data.routes[0]?.legs[0]?.end_location.lat);
             setEndLongitude(response.data.routes[0]?.legs[0]?.end_location.lng);
             setStartLatitude(response.data.routes[0]?.legs[0]?.start_location.lat);

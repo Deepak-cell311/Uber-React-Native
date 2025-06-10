@@ -9,9 +9,7 @@ const RideDetailsScreen = ({ route, navigation }) => {
 
   useEffect(() => {
     async function fetchRoute() {
-      // Call Google Directions API to get distance, duration, polyline, etc.
-      // Sample fetch omitted; typically you'd fetch from your backend or directly Google Directions API with YOUR_GOOGLE_MAPS_API_KEY
-      // For demo, fake data:
+   
       setRouteInfo({
         distanceText: '5.4 km',
         durationText: '12 mins',
@@ -38,7 +36,6 @@ const RideDetailsScreen = ({ route, navigation }) => {
       <Text>Distance: {routeInfo.distanceText}</Text>
       <Text>Estimated Time: {routeInfo.durationText}</Text>
       <Text>Estimated Fare: {routeInfo.fare}</Text>
-      {/* Extend to select car types */}
       <TouchableOpacity style={styles.button} onPress={confirmRide}>
         <Text style={styles.buttonText}>Confirm Ride</Text>
       </TouchableOpacity>

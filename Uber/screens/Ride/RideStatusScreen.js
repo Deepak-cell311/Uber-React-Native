@@ -9,11 +9,9 @@ const RideStatusScreen = ({ route }) => {
     <View style={styles.container}>
       <Text style={styles.heading}>Ride Status</Text>
       <Text>Your driver is on the way!</Text>
-      {/* Use MapView here to show driver + user locations */}
       <Text>Pickup: {pickup}</Text>
       <Text>Dropoff: {dropoff}</Text>
       <Text>Fare: {routeInfo.fare}</Text>
-      {/* Show real-time updates here */}
     </View>
   );
 };
