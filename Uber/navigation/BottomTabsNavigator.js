@@ -4,11 +4,12 @@ import { View, Text } from 'react-native';
 import { Home, Settings, Clock, User } from 'lucide-react-native'; // Import your icons
 import HomeStackNavigator from './HomeStackNavigator';
 import AccountScreen from '../screens/Profile/Account';
+import ServicesScreen from '../services/ServicesScreen'; // Ensure this path is correct
 
 
 
 // const HomeScreen = () => <View><Text>Home Screen</Text></View>;
-const ServicesScreen = () => <View><Text>Services Screen</Text></View>;
+// const ServicesScreen = () => <View><Text>Services Screen</Text></View>;
 const ActivityScreen = () => <View><Text>Activity Screen</Text></View>;
 
 const Tab = createBottomTabNavigator();

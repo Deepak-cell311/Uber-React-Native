@@ -9,6 +9,7 @@ import AppNavigator from './navigation/AppNavigator';
 import Colors from './constants/Colors';
 import AuthProvider, { useAuth } from './AuthContext/AuthContext';
 import { AlertNotificationRoot } from 'react-native-alert-notification';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 export default function App() {
@@ -16,11 +17,13 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <AlertNotificationRoot>
-      <AuthProvider>
-        <MainApp />
-      </AuthProvider>
-    </AlertNotificationRoot>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <AlertNotificationRoot>
+        <AuthProvider>
+          <MainApp />
+        </AuthProvider>
+      </AlertNotificationRoot>
+    </GestureHandlerRootView>
   );
 }
 

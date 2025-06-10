@@ -33,7 +33,7 @@ export default function WelcomeScreen() {
 
                     }}
                 >
-                    <Text style={{ color: Colors.black, fontSize: 16, width: "100" }}>Start Here</Text>
+                    <Text style={{ color: Colors.black, fontSize: 16, width: 100 }}>Start Here</Text>
                 </Pressable>
             </KeyboardAvoidingView>
         </SafeAreaView>
